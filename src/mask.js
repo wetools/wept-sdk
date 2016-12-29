@@ -1,9 +1,10 @@
 import assign from 'object-assign'
 
-export default function Mask() {
+export default function Mask(bgColor = 'transparent') {
   let el = document.createElement('div')
   el.className = 'mask'
   assign(el.style, {
+    backgroundColor: bgColor,
     position: 'absolute',
     left: 0,
     top: 0,

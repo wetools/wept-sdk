@@ -3,13 +3,20 @@
 <head>
   <link href="https://res.wx.qq.com/mpres/htmledition/images/favicon218877.ico" rel="Shortcut Icon">
   <meta charset="UTF-8" />
-  <link rel="stylesheet" type="text/css" href="/index.css">
-  <link rel="stylesheet" type="text/css" href="/style.css">
+  <link rel="stylesheet" type="text/css" href="./index.css">
+  <link rel="stylesheet" type="text/css" href="./style.css">
   <meta name="viewport" content="width=device-width, height=device-height,user-scalable=no, initial-scale=1.0" />
-  <script src="/recorder.js"></script>
+  <script src="./recorder.js"></script>
 </head>
 <body>
-  <audio id="audio" type="audio/mp3" style="display:none;"></audio>
-  <audio id="background-audio" type="audio/mp3" style="display:none;"></audio>
+  <button class="btn" on-click="showActionSheet">show actionSheet</button>
+  <button class="btn" on-click="showModal">show modal</button>
+  <button class="btn" on-click="showMask">show mask</button>
+  <button class="btn" on-click="showPicker">show picker</button>
+  <button class="btn" on-click="showToast">show toast</button>
+  <button class="btn" on-click="showTimePicker">show time picker</button>
+  <button class="btn" on-click="playMusic">play music</button>
+  <button class="btn" on-click="stopMusic">stop music</button>
+  <script src="./bundle.js" type="text/javascript"></script>
 </body>
 </html>

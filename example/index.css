@@ -21,3 +21,17 @@ body {
 *, ::after, ::before {
   box-sizing: border-box;
 }
+.btn {
+  width: 90%;
+  display: block;
+  margin: 1em auto;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #3cc51f;
+  box-shadow: none;
+  outline: none;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  -webkit-appearance: none;
+}

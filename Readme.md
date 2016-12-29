@@ -2,6 +2,29 @@
 
 小程序 native 组件 web 端实现
 
+## 测试
+
+    npm install && gulp test
+    open http://localhost:8080/bundle
+
+## 运行 UI 示例
+
+    npm install && gulp
+    open http://localhost:3000/example/
+
+## 使用
+
+``` js
+import {
+  fileManage,
+  downloadFile,
+  uploadFile,
+  ...
+} from 'wept-sdk'
+```
+
+页面上引入 `example/style.css`
+
 ## 模块
 
 * `compass` 罗盘模块，提供 `watch` 和 `unwatch` 方法
@@ -75,7 +98,7 @@
 * `modal` 模块， 弹出窗口
 
     ``` js
-    model({
+    modal({
       title: '',
       content: '',
       imgUrl: ''

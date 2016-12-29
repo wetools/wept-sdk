@@ -38,7 +38,6 @@ export default class Scrollable extends Emitter {
   }
   ontouchstart(e) {
     if (this.tween) this.tween.stop()
-    e.preventDefault()
     let touch = this.getTouch(e)
     this.down = {
       sy: this.y,
@@ -49,7 +48,6 @@ export default class Scrollable extends Emitter {
   }
   ontouchmove(e) {
     if (!this.down || this.tween) return
-    e.preventDefault()
     let touch = this.getTouch(e)
     let y = touch.clientY
     let down = this.down
