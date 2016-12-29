@@ -1,6 +1,6 @@
 {
   "name": "wept-sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "提供 wept 使用 navtive sdk 调用相关组件",
   "main": "index.js",
   "scripts": {
