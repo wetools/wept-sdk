@@ -1,6 +1,6 @@
 # wept-sdk
 
-小程序 native 组件 web 端实现
+小程序 native 组件 web 端实现, 没有小程序代码依赖，可用于普通移动端页面
 
 ## 测试
 
