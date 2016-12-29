@@ -5,7 +5,7 @@ module.exports = {
   debug: true,
   module: {
     loaders: [
-      { test: /\.js$/, exclude: /(node_modules|dest)/, loader: 'babel-loader' },
+      { test: /\.js$/, exclude: /(node_modules|dest)/, loader: 'babel?cacheDirectory' },
       { test: /\.et/, loader: 'ei-loader' }
     ]
   }

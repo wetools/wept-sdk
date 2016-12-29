@@ -17,7 +17,7 @@ import {
 
 describe('downloadFile', () => {
   it('should download file', done => {
-    downloadFile('https://pic1.zhimg.com/v2-953292cea62942adfcfe392fe29672e4_b.jpg').then(res => {
+    downloadFile('http://assets.jiangwoo.com/11.jpg').then(res => {
       assert(res.statusCode)
       assert(res.tempFilePath)
       done()
