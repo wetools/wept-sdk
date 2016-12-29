@@ -3,7 +3,7 @@ var growl = require('growl')
 var serve = require('gulp-live-serve')
 var livereload = require('gulp-livereload')
 var webpack = require('webpack')
-var webpackStream = require('webpack-stream');
+var gulpWebpack = require('gulp-webpack')
 var WebpackDevServer = require('webpack-dev-server')
 var gulp = require('gulp')
 var webpackConfig = require('./webpack.config')
@@ -37,7 +37,7 @@ gulp.task('build', ['serve'], function () {
   })
 
   return gulp.src('example/index.js')
-    .pipe(webpackStream(myConfig))
+    .pipe(gulpWebpack(myConfig, webpack))
     .pipe(gulp.dest('example'))
 })
 
