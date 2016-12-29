@@ -1,12 +1,28 @@
 import once from 'once'
-let el = document.createElement('audio')
-el.id = 'audio'
-document.body.appendChild(el)
+import {domready} from './util'
 
+let el = document.createElement('audio')
+domready(() => {
+  el.style.display = 'none'
+  document.body.appendChild(el)
+})
+
+/**
+ * Voice component
+ *
+ * @returns {object}
+ */
 export default {
+  /**
+   * play
+   *
+   * @public
+   * @param {string} url - source url
+   * @returns {Promise}
+   */
   play: function (url) {
     return new Promise(function(resolve, reject) {
-      if (el.src && el.paused && !el.ended) {
+      if (el.src && el.src == url && el.paused && !el.ended) {
         // resume
         el.play()
       } else {
@@ -22,9 +38,19 @@ export default {
       }
     })
   },
+  /**
+   * pause voice player
+   *
+   * @public
+   */
   pause: function () {
     el.pause()
   },
+  /**
+   * Stop voice play
+   *
+   * @public
+   */
   stop: function () {
     el.pause()
     el.currentTime = 0

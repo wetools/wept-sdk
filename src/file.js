@@ -7,8 +7,9 @@ import uid from 'uid'
 import Emitter from 'emitter'
 
 const dbVersion = 4
+let root = window.__wxConfig__ ? window.__wxConfig__.directory : 'test'
 
-export default class FileManage extends Emitter {
+class FileManage extends Emitter {
   constructor(root) {
     super()
     this.root = root.replace(/\//g, '_')
@@ -27,6 +28,13 @@ export default class FileManage extends Emitter {
       }
     }
   }
+  /**
+   * Save ObjectURL to db
+   *
+   * @public
+   * @param {string} url - ObjectURL
+   * @returns {Promise}
+   */
   save(url) {
     let {db} = this
     if (!db) return Promise.reject(new Error('indexedDB not ready'))
@@ -47,6 +55,13 @@ export default class FileManage extends Emitter {
       })
     })
   }
+  /**
+   * Get file info from saved path
+   *
+   * @public
+   * @param {string} savedPath
+   * @returns {Promise} - resolved with info
+   */
   getFileInfo(savedPath) {
     let {db} = this
     if (!db) return Promise.reject(new Error('indexedDB not ready'))
@@ -61,6 +76,13 @@ export default class FileManage extends Emitter {
       }
     })
   }
+  /**
+   * Remove a saved file
+   *
+   * @public
+   * @param {string} savedPath - string
+   * @returns {Promise}
+   */
   remove(savedPath) {
     let {db} = this
     if (!db) return Promise.reject(new Error('indexedDB not ready'))
@@ -73,6 +95,12 @@ export default class FileManage extends Emitter {
       }
     })
   }
+  /**
+   * getFileList array
+   *
+   * @public
+   * @returns {Promise} - resolved with array of info
+   */
   getFileList() {
     let {db} = this
     if (!db) return Promise.reject(new Error('indexedDB not ready'))
@@ -85,6 +113,13 @@ export default class FileManage extends Emitter {
       }
     })
   }
+  /**
+   * Convert saved path to ObjectURL
+   *
+   * @public
+   * @param {string} filePath - saved path
+   * @returns {Promise}
+   */
   toURL(filePath) {
     return this.getFileInfo(filePath).then(record => {
       let blob = record.file
@@ -92,6 +127,11 @@ export default class FileManage extends Emitter {
       return url
     })
   }
+  /**
+   * clear current store
+   *
+   * @public
+   */
   clear() {
     let {db} = this
     if (!db) return Promise.reject(new Error('indexedDB not ready'))
@@ -105,3 +145,5 @@ export default class FileManage extends Emitter {
     })
   }
 }
+
+export default new FileManage(root)

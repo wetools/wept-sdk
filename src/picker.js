@@ -5,6 +5,14 @@ import Scrollable from './scrollable'
 import tmplFn from './picker.et'
 
 export default class Picker extends Emitter {
+  /**
+   *
+   * @public
+   * @param {object} opts
+   * @param {string[]} opts.array - content array of picker
+   * @param {number} opts.current - current index
+   * @constructor
+   */
   constructor(opts) {
     super()
     this.opts = opts
@@ -14,6 +22,11 @@ export default class Picker extends Emitter {
     this.events.bind('click .cancel', 'cancel');
     this.events.bind('click .confirm', 'confirm');
   }
+  /**
+   * show picker
+   *
+   * @public
+   */
   show() {
     this.root.appendChild(domify('<div class="wx-picker-mask"></div>'))
     const items = this.opts.array.map(text => {

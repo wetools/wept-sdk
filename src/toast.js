@@ -16,7 +16,23 @@ const tmpl = `
 const fn = et.compile(tmpl)
 let hideMask = null
 
+/**
+ * toast component
+ *
+ * @returns {object}
+ */
 export default {
+  /**
+   * Show toast
+   *
+   * @public
+   * @param {object} option
+   * @param {number} [option.duration=1500] - max duration
+   * @param {string} option.icon - icon name
+   * @param {string} option.title - title text
+   * @param {boolean} [mask] - opeaque mask
+   * @returns {undefined}
+   */
   show: function ({duration = 1500, icon, title, mask}) {
     this.hide()
     duration = Math.min(duration, 10000)

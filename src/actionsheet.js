@@ -22,6 +22,15 @@ const fn = et.compile(tmpl)
 
 let el = null
 
+/**
+ * 
+ *
+ * @public
+ * @param {object} config - config for actionSheet
+ * @param {string[]} config.itemList - array of shown text
+ * @param {string} [config.itemColor=#000000] - text color of item
+ * @returns {Promise}
+ */
 export default function ({itemList, itemColor = '#000000'}) {
   if (el && el.parentNode) el.parentNode.removeChild(el)
 

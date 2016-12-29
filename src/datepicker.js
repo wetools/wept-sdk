@@ -5,6 +5,12 @@ import Scrollable from './scrollable'
 import tmplFn from './picker.et'
 import {range} from './util'
 
+/**
+ * DatePicker component
+ *
+ * @public
+ * @extends {Emitter}
+ */
 export default class DatePicker extends Emitter {
   constructor(opts) {
     super()
@@ -18,6 +24,11 @@ export default class DatePicker extends Emitter {
     this.sy = Number(r.start.split('-')[0])
     this.ey = Number(r.end.split('-')[0])
   }
+  /**
+   * Show picker
+   *
+   * @public
+   */
   show() {
     this.root.appendChild(domify('<div class="wx-picker-mask"></div>'))
     const group = []
@@ -47,11 +58,22 @@ export default class DatePicker extends Emitter {
   checkValue(s, value) {
     // TODO validate value
   }
+  /**
+   * getCurrent
+   *
+   * @public
+   * @returns {number[]}
+   */
   getCurrent() {
     const str = this.opts.current
     const parts = str.split('-')
     return [Number(parts[0])- this.sy, Number(parts[1]) - 1, Number(parts[2]) - 1]
   }
+  /**
+   * hide picker
+   *
+   * @public
+   */
   hide() {
     this.events.unbind()
     this.scrollables.forEach(s => {
@@ -70,6 +92,6 @@ export default class DatePicker extends Emitter {
       return s.currentValue()
     })
     this.hide()
-    this.emit('select',vals.join('-'))
+    this.emit('select', vals.join('-'))
   }
 }

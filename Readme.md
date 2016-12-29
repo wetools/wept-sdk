@@ -16,7 +16,7 @@
 * `actionSheet` 模块，返回 promise
 
     ``` js
-    actionSheet( {
+    actionSheet({
       itemList: ['a', 'b', 'c'],
       itemColor: '#000000'
     }).then(res => {
@@ -44,12 +44,9 @@
     })
     ```
 
-* `FileManage` 模块，本地文件管理，使用 IndexDB
+* `fileManage` 模块，本地文件管理，使用 IndexDB
 
     ``` js
-    let fileManage = new FileManage({
-      key: __wxConfig.directory // key for weapp
-    })
     // save to db
     fileManage.save(tempFilePath).then(savedPath => {
 

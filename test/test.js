@@ -1,7 +1,7 @@
 /*global describe, it, before, after*/
 import assert from 'assert'
 import {
-  FileManage,
+  fileManage,
   downloadFile,
   uploadFile,
   imgInfo,
@@ -26,24 +26,20 @@ describe('downloadFile', () => {
 })
 
 describe('sdk file manager', () => {
-  const root = 'test'
-
-  const manage = new FileManage(root)
-
   before(done => {
     // may need upgrade
     setTimeout(done, 300)
   })
 
   after(done => {
-    manage.clear().then(done, done)
+    fileManage.clear().then(done, done)
   })
 
   function saveFile() {
     let debug = {hello: "world"}
     let blob = new Blob([JSON.stringify(debug, null, 2)], {type : 'application/json'})
     let url = URL.createObjectURL(blob)
-    return manage.save(url)
+    return fileManage.save(url)
   }
 
   it('should save file to db', done => {
@@ -55,7 +51,7 @@ describe('sdk file manager', () => {
 
   it('should get file info', done => {
     saveFile().then(savedPath => {
-      manage.getFileInfo(savedPath).then(obj => {
+      fileManage.getFileInfo(savedPath).then(obj => {
         assert.equal(obj.size, 22)
         assert(obj.createTime)
         done()
@@ -65,8 +61,8 @@ describe('sdk file manager', () => {
 
   it('should remove stored file', done => {
     saveFile().then(savedPath => {
-      manage.remove(savedPath).then(() => {
-        manage.getFileInfo(savedPath).catch(e => {
+      fileManage.remove(savedPath).then(() => {
+        fileManage.getFileInfo(savedPath).catch(e => {
           assert(/not\sexist/.test(e.message))
           done()
         })
@@ -76,7 +72,7 @@ describe('sdk file manager', () => {
 
   it('should get all saved files', done => {
     Promise.all([saveFile(), saveFile()]).then(() => {
-      manage.getFileList().then(res => {
+      fileManage.getFileList().then(res => {
         assert(res.length >= 2)
         assert(res[0].size)
         assert(res[0].filePath)
@@ -86,8 +82,8 @@ describe('sdk file manager', () => {
   })
 
   it('should clear db', done => {
-    manage.clear().then(() => {
-      manage.getFileList().then(res => {
+    fileManage.clear().then(() => {
+      fileManage.getFileList().then(res => {
         assert(res.length == 0)
         done()
       }, done)
@@ -96,7 +92,7 @@ describe('sdk file manager', () => {
 
   it('should generate url', done => {
     saveFile().then(filePath => {
-      manage.toURL(filePath).then(url => {
+      fileManage.toURL(filePath).then(url => {
         assert(/^blob:http/.test(url))
         done()
       }, done)

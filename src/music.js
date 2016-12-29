@@ -1,9 +1,16 @@
 import Emitter from 'emitter'
+import {domready} from './util'
 
 const el = document.createElement('audio')
-el.id = 'background-audio'
-document.body.appendChild(el)
+domready(() => {
+  el.style.display = 'none'
+  document.body.appendChild(el)
+})
 
+/**
+ * Background music component
+ * @extends {Emitter}
+ */
 class Audio extends Emitter {
   constructor() {
     super()
@@ -11,6 +18,12 @@ class Audio extends Emitter {
       this.emit('error', e)
     }
   }
+  /**
+   * Get current status
+   *
+   * @public
+   * @returns {object} - status object
+   */
   getStatus() {
     let obj = {
       status: el.src ? el.paused ? 0 : 1 : 2,
@@ -26,6 +39,12 @@ class Audio extends Emitter {
     }
     return obj
   }
+  /**
+   * play
+   *
+   * @public
+   * @param {string} url
+   */
   play(url) {
     if (el.src == url && el.paused && !el.ended) {
       el.play()

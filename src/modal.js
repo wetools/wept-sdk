@@ -27,6 +27,20 @@ const fn = et.compile(tmpl)
 
 let el = null
 
+/**
+ * Modal component
+ *
+ * @public
+ * @param {object} opt
+ * @param {string} opt.content
+ * @param {string} [opt.imgUrl]
+ * @param {boolean} [showCancel=true]
+ * @param {string} [cancelText='取消']
+ * @param {string} [cancelColor='#000000']
+ * @param {string} [confirmText='确定']
+ * @param {string} [confirmColor='#3CC51F']
+ * @returns {Promise} - resolve true on confirm
+ */
 export default function ({title = '', content = '', imgUrl, showCancel = true, cancelText = '取消', cancelColor = '#000000', confirmText = '确定', confirmColor = '#3CC51F'}) {
   if (el && el.parentNode) el.parentNode.removeChild(el)
 

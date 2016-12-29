@@ -131,12 +131,10 @@ export default class Scrollable extends Emitter {
   }
 
   /**
-   * Translate to `y`.
+   * translate to y
    *
-   *
-   * @api private
+   * @private
    */
-
   translate(y) {
     let s = this.el.style
     if (isNaN(y)) return
@@ -145,12 +143,11 @@ export default class Scrollable extends Emitter {
     this.y = y
     s[transform] = `translate3d(0, ${y}px, 0)`
   }
-    /**
+  /**
    * Sets the "touchAction" CSS style property to `value`.
    *
    * @api private
    */
-
   touchAction(value) {
     let s = this.el.style
     if (touchAction) {

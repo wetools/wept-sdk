@@ -1,6 +1,26 @@
+import fileManage from './file'
 import { getBlobFromUrl } from './util'
 
-export default function ({filePath, name, url, headers, formData}, proxyUrl) {
+/**
+ * Upload file to remote server
+ *
+ * @public
+ * @param {object} option
+ * @param {string} option.filePath - tempFilePath
+ * @param {string} option.url - remote url address
+ * @param {object} [option.headers] - custom headers
+ * @param {object} [option.formData] - custom formData
+ * @param {string} [proxyUrl] - custom proxy url
+ * @returns {Promise}
+ */
+export default function upload({filePath, name, url, headers, formData}, proxyUrl) {
+  let args = arguments
+  if (/^wept:/.test(filePath)) {
+    return fileManage.toURL(filePath).then(url => {
+      args[0].filePath = url
+      return upload.apply(null, args)
+    })
+  }
   return new Promise(function(resolve, reject) {
     getBlobFromUrl(filePath).then(file => {
       let xhr = new XMLHttpRequest()

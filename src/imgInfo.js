@@ -1,5 +1,18 @@
+import fileManage from './file'
 
-export default function (src) {
+/**
+ * Image info component
+ *
+ * @public
+ * @param {string} src
+ * @returns {Promise}
+ */
+export default function info (src) {
+  if (/^wept:/.test(src)) {
+    return fileManage.toURL(src).then(url => {
+      return info(url)
+    })
+  }
   let img = document.createElement('img')
   img.src = src
   if (img.complete) return Promise.resolve(imgDimension(img))

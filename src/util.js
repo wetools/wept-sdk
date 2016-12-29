@@ -1,3 +1,4 @@
+import event from 'event'
 
 export function range(n, start = 0, suffix = '') {
   const arr = []
@@ -17,6 +18,13 @@ export const indexedDB = window.indexedDB || window.webkitIndexedDB || window.mo
 export const IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.OIDBTransaction || window.msIDBTransaction
 
 
+/**
+ * Get Blob object from url string
+ *
+ * @public
+ * @param {string} url
+ * @returns {Promise}
+ */
 export function getBlobFromUrl(url) {
   var xhr = new XMLHttpRequest()
   xhr.open('GET', url, true)
@@ -31,4 +39,8 @@ export function getBlobFromUrl(url) {
     }
     xhr.send()
   })
+}
+
+export function domready(cb) {
+  event.bind(document, 'DOMContentLoaded', cb)
 }

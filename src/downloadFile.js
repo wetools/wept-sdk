@@ -1,4 +1,13 @@
 
+/**
+ * Download a remote file, resolved with statusCode & tempFilePath
+ *
+ * @public
+ * @param {string} url
+ * @param {object} [headers={}]
+ * @param {String} [proxyUrl] - custom proxy url
+ * @returns {Promise}
+ */
 export default function (url, headers = {}, proxyUrl) {
   return new Promise(function(resolve, reject) {
     let URL = (window.URL || window.webkitURL)

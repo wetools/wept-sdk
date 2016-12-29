@@ -13,6 +13,13 @@ var t = function(t) {
   },
   i = {
     method: e,
+    /**
+     * Watch orientation change
+     *
+     * @public
+     * @param  {function}  e
+     * @returns {number}
+     */
     watch: function(e) {
       var t = ++i._lastId;
       return i.init(function(n) {
@@ -30,6 +37,12 @@ var t = function(t) {
         }
       }), t
     },
+    /**
+     * Unwatch a compass handler
+     *
+     * @public
+     * @param  {Number}  e
+     */
     unwatch: function(e) {
       return i.init(function(t) {
         t == "phonegap" ? i._nav.compass.clearWatch(i._watchers[e]) : (t == "webkitOrientation" || t == "orientationAndGPS") && i._win.removeEventListener("deviceorientation", i._watchers[e]), delete i._watchers[e]

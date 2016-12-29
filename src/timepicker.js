@@ -5,7 +5,20 @@ import Scrollable from './scrollable'
 import tmplFn from './picker.et'
 import {range} from './util'
 
+/**
+ * TimePicker component
+ * @public
+ *
+ * @extends {Emitter}
+ */
 export default class TimePicker extends Emitter {
+  /**
+   * constructor
+   *
+   * @constructor
+   * @param {object} opts
+   * @param {string} opts.current - current time
+   */
   constructor(opts) {
     super()
     this.opts = opts
@@ -15,6 +28,11 @@ export default class TimePicker extends Emitter {
     this.events.bind('click .cancel', 'cancel');
     this.events.bind('click .confirm', 'confirm');
   }
+  /**
+   * show picker
+   *
+   * @public
+   */
   show() {
     this.root.appendChild(domify('<div class="wx-picker-mask"></div>'))
     const group = []
@@ -45,6 +63,11 @@ export default class TimePicker extends Emitter {
     const parts = str.split(':')
     return [Number(parts[0]), Number(parts[1])]
   }
+  /**
+   * hide picker
+   *
+   * @public
+   */
   hide() {
     this.events.unbind()
     this.scrollables.forEach(s => {

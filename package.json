@@ -27,6 +27,7 @@
   "dependencies": {
     "component-classes": "^1.2.6",
     "component-emitter": "^1.2.1",
+    "component-event": "^0.2.0",
     "component-events": "^1.0.10",
     "component-raf": "^1.2.0",
     "component-tween": "^1.2.0",
@@ -44,6 +45,7 @@
     "raf": "component-raf",
     "emitter": "component-emitter",
     "uid": "component-uid",
-    "classes": "component-classes"
+    "classes": "component-classes",
+    "event": "component-event"
   }
 }
