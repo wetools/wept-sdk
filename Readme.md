@@ -248,6 +248,37 @@ import {
     })
     ```
 
+* `notice` 模块
+
+    ``` js
+    notice('This is error', {
+      type: 'error', // success, error or info
+      sticky: true, // true or false
+      duration: 3000
+    })
+    ```
+
+* `spin` 模块
+
+    ``` js
+    // attach spin to node
+    spin(node, {
+      size: 32, // default 32
+      width: 4, // line width default 4
+      duration: 1000, // animation duration in milisecond
+      color: '#ffffff' // color in rrggbb format
+    })
+    ```
+
+* `ImagesPreview` 模块
+
+    ``` js
+    let current = urls[0]
+    let preview = new ImagesPreview(urls, {})
+    preview.show()
+    preview.active(current)
+    ```
+
 ## LICENSE
 
 Copyright 2016 chemzqm@gmail.com

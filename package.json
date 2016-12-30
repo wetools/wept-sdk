@@ -36,6 +36,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
+    "autoscale-canvas": "0.0.3",
     "component-classes": "^1.2.6",
     "component-closest": "^1.0.1",
     "component-emitter": "^1.2.1",
@@ -47,13 +48,16 @@
     "component-tap-event": "^1.1.4",
     "component-tween": "^1.2.0",
     "component-uid": "0.0.2",
+    "computed-style": "^0.3.0",
     "domify": "^1.4.0",
     "et-improve": "^0.1.3",
     "object-assign": "^4.1.0",
     "once": "^1.4.0",
+    "pinch-zoom": "^0.3.8",
     "prop-detect": "^1.1.0",
     "radio-component": "0.0.2",
-    "throttleit": "^1.0.0"
+    "throttleit": "^1.0.0",
+    "within-document": "0.0.3"
   },
   "browser": {
     "events": "component-events",

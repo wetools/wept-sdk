@@ -5,7 +5,7 @@ export default function Mask(bgColor = 'transparent') {
   el.className = 'mask'
   assign(el.style, {
     backgroundColor: bgColor,
-    position: 'absolute',
+    position: 'fixed',
     left: 0,
     top: 0,
     right: 0,

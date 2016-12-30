@@ -7,10 +7,37 @@ import {
   Picker,
   TimePicker,
   DatePicker,
-  toast
+  spin,
+  toast,
+  notice,
+  ImagesPreview
 } from '../src/index'
 
 let handlers = {
+  showNotice: function () {
+    notice('This is error', {
+      type: 'error'
+    })
+  },
+  previewImages: function () {
+    let urls = ['http://assets.jiangwoo.com/uploads%2F7338f5556a8cae202e41e73aae620351-IMG_2667.jpg',
+      'http://assets.jiangwoo.com/uploads%2Fc766f07cc620efd7dbe40957e74eb278-IMG_1511.jpg',
+      'http://assets.jiangwoo.com/uploads%2F371414030ee0aaf96f7b5b9cef5d6683-IMG_1560.jpg']
+    let current = urls[0]
+    let preview = new ImagesPreview(urls, {})
+    preview.show()
+    preview.active(current)
+  },
+  showSpin: function () {
+    let hide = mask('rgba(0,0,0,0.3)')
+    let pel = document.querySelector('.mask')
+    spin(pel, {
+      size: 40
+    })
+    setTimeout(() => {
+      hide()
+    }, 1000)
+  },
   showActionSheet: function () {
     actionSheet({
       itemList: ['a', 'b', 'c'],
