@@ -5,7 +5,7 @@
   "description": "提供 wept 使用 navtive sdk 调用相关组件",
   "main": "index.js",
   "scripts": {
-    "prepublish": "babel src -d dest",
+    "prepublish": "babel src -d dest --source-maps",
     "test": "karma start --single-run"
   },
   "author": "chemzqm@gmail.com",
