@@ -2,7 +2,7 @@ import Emitter from 'emitter'
 import domify from 'domify'
 import events from 'events'
 import Scrollable from './scrollable'
-import tmplFn from './picker.et'
+import tmplFn from './picker-et'
 
 export default class Picker extends Emitter {
   /**

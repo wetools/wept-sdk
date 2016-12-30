@@ -6,6 +6,7 @@ import {
   music,
   Picker,
   TimePicker,
+  DatePicker,
   toast
 } from '../src/index'
 
@@ -56,6 +57,18 @@ let handlers = {
       icon: 'loading',
       title: 'wait',
       mask: true
+    })
+  },
+  showDatePicker: function () {
+    let picker = new DatePicker({
+      range: {
+        start: '2016-01-01',
+        end: '2018-01-01'
+      }
+    })
+    picker.show()
+    picker.on('select', str => {
+      console.log(str)
     })
   },
   showTimePicker: function () {

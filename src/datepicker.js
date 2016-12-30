@@ -2,7 +2,7 @@ import Emitter from 'emitter'
 import domify from 'domify'
 import events from 'events'
 import Scrollable from './scrollable'
-import tmplFn from './picker.et'
+import tmplFn from './picker-et'
 import {range} from './util'
 
 /**
@@ -41,7 +41,6 @@ export default class DatePicker extends Emitter {
     group.push(range(31, 1).map(o => {
       return {text: `${o}日`, value:o}
     }))
-    console.log(group)
     const el = domify(tmplFn({group}))
     this.root.appendChild(el)
 
@@ -65,7 +64,7 @@ export default class DatePicker extends Emitter {
    * @returns {number[]}
    */
   getCurrent() {
-    const str = this.opts.current
+    const str = this.opts.current || (new Date()).toISOString().replace(/T.*$/, '')
     const parts = str.split('-')
     return [Number(parts[0])- this.sy, Number(parts[1]) - 1, Number(parts[2]) - 1]
   }

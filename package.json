@@ -37,10 +37,14 @@
   },
   "dependencies": {
     "component-classes": "^1.2.6",
+    "component-closest": "^1.0.1",
     "component-emitter": "^1.2.1",
     "component-event": "^0.2.0",
     "component-events": "^1.0.10",
+    "component-file-picker": "^0.2.1",
+    "component-query": "0.0.3",
     "component-raf": "^1.2.0",
+    "component-tap-event": "^1.1.4",
     "component-tween": "^1.2.0",
     "component-uid": "0.0.2",
     "domify": "^1.4.0",
@@ -48,6 +52,7 @@
     "object-assign": "^4.1.0",
     "once": "^1.4.0",
     "prop-detect": "^1.1.0",
+    "radio-component": "0.0.2",
     "throttleit": "^1.0.0"
   },
   "browser": {
@@ -57,6 +62,10 @@
     "emitter": "component-emitter",
     "uid": "component-uid",
     "classes": "component-classes",
-    "event": "component-event"
+    "event": "component-event",
+    "file-picker": "component-file-picker",
+    "query": "component-query",
+    "tap-event": "component-tap-event",
+    "closest": "component-closest"
   }
 }

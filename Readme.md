@@ -58,7 +58,7 @@ import {
       range: {
         start: '2016-01-01',
         end: '2018-01-01'
-      },
+      }
     })
     picker.show()
     picker.hide()
