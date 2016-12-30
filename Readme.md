@@ -279,6 +279,27 @@ import {
     preview.active(current)
     ```
 
+* `imagePicker` 模块
+
+    ``` js
+    imagePicker({
+      multiple: true // default true
+    }).then(arr => {
+      // array contains image ObjectURL and image size
+    })
+    ```
+* `videoPicker` 模块
+
+    ``` js
+    videoPicker().then(obj => {
+      // obj.duration duration in seconds
+      // obj.size byte length of video
+      // obj.height video height
+      // obj.width video width
+      // obj.url ObjectURL of video
+    })
+    ```
+
 ## LICENSE
 
 Copyright 2016 chemzqm@gmail.com

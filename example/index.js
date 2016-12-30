@@ -10,10 +10,24 @@ import {
   spin,
   toast,
   notice,
-  ImagesPreview
+  ImagesPreview,
+  imagePicker,
+  videoPicker
 } from '../src/index'
 
 let handlers = {
+  pickImage: function () {
+    imagePicker({
+      multiple: true // default true
+    }).then(arr => {
+      console.log(arr)
+    })
+  },
+  pickVideo: function () {
+    videoPicker().then(obj => {
+      console.log(obj)
+    })
+  },
   showNotice: function () {
     notice('This is error', {
       type: 'error'
